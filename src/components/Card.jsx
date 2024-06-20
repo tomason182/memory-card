@@ -7,7 +7,7 @@ export default function Card({ data }) {
 
   return (
     <div
-      className={`card ${wasClicked ? "clicked" : ""}`}
+      className={`${style.card}  ${wasClicked ? "clicked" : ""}`}
       onClick={() => {
         setWasClicked(!wasClicked);
       }}
