@@ -1,12 +1,12 @@
 import style from "./Card.module.css";
 import PropTypes from "prop-types";
 
-export default function Card({ data, wasClicked, setWasClicked }) {
+export default function Card({ data, wasClicked, handleCardClicks }) {
   return (
     <div
       className={`${style.card}  ${wasClicked ? "clicked" : ""}`}
       onClick={() => {
-        setWasClicked(!wasClicked);
+        handleCardClicks;
       }}
     >
       <div className="image">
@@ -22,5 +22,5 @@ export default function Card({ data, wasClicked, setWasClicked }) {
 Card.propTypes = {
   data: PropTypes.object,
   wasClicked: PropTypes.bool,
-  setWasClicked: PropTypes.func,
+  handleCardClicks: PropTypes.func,
 };

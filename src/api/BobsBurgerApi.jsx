@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 export default function BobsBurgerApi({
   character,
   wasClicked,
-  setWasClicked,
+  handleCardClicks,
 }) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -35,7 +35,7 @@ export default function BobsBurgerApi({
         <Card
           data={data}
           wasClicked={wasClicked}
-          setWasClicked={setWasClicked}
+          setWasClicked={handleCardClicks}
         />
       )}
     </>
@@ -43,5 +43,7 @@ export default function BobsBurgerApi({
 }
 
 BobsBurgerApi.propTypes = {
-  character: PropTypes.number,
+  character: PropTypes.number.isRequired,
+  wasClicked: PropTypes.bool.isRequired,
+  handleCardClicks: PropTypes.func.isRequired,
 };
