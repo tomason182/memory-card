@@ -1,6 +1,7 @@
 import styles from "./Header.module.css";
+import PropTypes from "react";
 
-export default function Header() {
+export default function Header({ score, bestScore }) {
   return (
     <div id={styles.header}>
       <div className="left-section">
@@ -8,9 +9,14 @@ export default function Header() {
         <p>Game description - How to play</p>
       </div>
       <div className="right-section">
-        <p className="score">Score: xxx</p>
-        <p className="score">Best Score: xxx</p>
+        <p className="score">Score: {score}</p>
+        <p className="score">Best Score: {bestScore}</p>
       </div>
     </div>
   );
 }
+
+Header.propTypes = {
+  score: PropTypes.number,
+  bestScore: PropTypes.number,
+};
