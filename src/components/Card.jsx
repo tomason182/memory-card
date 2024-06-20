@@ -1,10 +1,7 @@
-import { useState } from "react";
 import style from "./Card.module.css";
 import PropTypes from "prop-types";
 
-export default function Card({ data }) {
-  const [wasClicked, setWasClicked] = useState(false);
-
+export default function Card({ data, wasClicked, setWasClicked }) {
   return (
     <div
       className={`${style.card}  ${wasClicked ? "clicked" : ""}`}
@@ -24,4 +21,6 @@ export default function Card({ data }) {
 
 Card.propTypes = {
   data: PropTypes.object,
+  wasClicked: PropTypes.bool,
+  setWasClicked: PropTypes.func,
 };

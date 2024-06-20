@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import Card from "../components/Card";
 import PropTypes from "prop-types";
 
-export default function BobsBurgerApi({ character }) {
+export default function BobsBurgerApi({
+  character,
+  wasClicked,
+  setWasClicked,
+}) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -25,7 +29,17 @@ export default function BobsBurgerApi({ character }) {
 
   if (error) return <p>A Network error occurred</p>;
   if (loading) return <p>Loading Images...</p>;
-  return <>{data && <Card data={data} />}</>;
+  return (
+    <>
+      {data && (
+        <Card
+          data={data}
+          wasClicked={wasClicked}
+          setWasClicked={setWasClicked}
+        />
+      )}
+    </>
+  );
 }
 
 BobsBurgerApi.propTypes = {
