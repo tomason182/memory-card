@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function Card(card) {
-  const [wasClicked, setWasClicked] = false;
+  const [wasClicked, setWasClicked] = useState(false);
 
   return (
     <div
