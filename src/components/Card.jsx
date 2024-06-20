@@ -1,21 +1,27 @@
 import { useState } from "react";
+import style from "./Card.module.css";
+import PropTypes from "prop-types";
 
-export default function Card(card) {
+export default function Card({ data }) {
   const [wasClicked, setWasClicked] = useState(false);
 
   return (
     <div
-      className={`card ${wasClicked && "clicked"}`}
+      className={`card ${wasClicked ? "clicked" : ""}`}
       onClick={() => {
         setWasClicked(!wasClicked);
       }}
     >
       <div className="image">
-        <img src={card.imageUrl} alt={card.title} />
+        <img className={style.img} src={data.image} alt={data.name} />
       </div>
       <div className="description">
-        <span>{card.title}</span>
+        <span>{data.name}</span>
       </div>
     </div>
   );
 }
+
+Card.propTypes = {
+  data: PropTypes.object,
+};
