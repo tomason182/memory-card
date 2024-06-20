@@ -1,5 +1,5 @@
 import styles from "./Header.module.css";
-import PropTypes from "react";
+import PropTypes from "prop-types";
 
 export default function Header({ score, bestScore }) {
   return (

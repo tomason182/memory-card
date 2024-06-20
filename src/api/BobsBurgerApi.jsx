@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import styles from "./BobsBurgerApi.module.css";
+import PropTypes from "prop-types";
 
-export default function BobsBurgerApi() {
+export default function BobsBurgerApi({ character }) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -10,7 +11,7 @@ export default function BobsBurgerApi() {
   const characterName = data && data.name;
 
   useEffect(() => {
-    fetch("https://bobsburgers-api.herokuapp.com/characters/2", {
+    fetch(`https://bobsburgers-api.herokuapp.com/characters/${character}`, {
       mode: "cors",
     })
       .then((response) => {
@@ -23,15 +24,20 @@ export default function BobsBurgerApi() {
       .then((data) => setData(data))
       .catch((err) => setError(err))
       .finally(() => setLoading(false));
-  }, []);
+  }, [character]);
 
-  if (error) return <p>A Network error ocurred</p>;
+  if (error) return <p>A Network error occurred</p>;
   if (loading) return <p>Loading Images...</p>;
   return (
     <>
       {data && (
         <img className={styles.img} src={characterImage} alt={characterName} />
       )}
+      {data && <h4>{characterName}</h4>}
     </>
   );
 }
+
+BobsBurgerApi.propTypes = {
+  character: PropTypes.number,
+};
