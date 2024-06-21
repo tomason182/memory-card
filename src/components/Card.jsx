@@ -5,9 +5,7 @@ export default function Card({ data, wasClicked, handleCardClicks }) {
   return (
     <div
       className={`${style.card}  ${wasClicked ? "clicked" : ""}`}
-      onClick={() => {
-        handleCardClicks;
-      }}
+      onClick={handleCardClicks}
     >
       <div className="image">
         <img className={style.img} src={data.image} alt={data.name} />

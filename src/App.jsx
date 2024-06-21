@@ -9,7 +9,7 @@ export default function App() {
   return (
     <>
       <Header score={score} bestScore={bestScore} />
-      <Content setScore={setScore} bestScore={setBestScore} />
+      <Content setScore={setScore} setBestScore={setBestScore} score={score} />
     </>
   );
 }

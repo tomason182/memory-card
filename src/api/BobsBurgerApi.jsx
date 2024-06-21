@@ -35,7 +35,7 @@ export default function BobsBurgerApi({
         <Card
           data={data}
           wasClicked={wasClicked}
-          setWasClicked={handleCardClicks}
+          handleCardClicks={handleCardClicks}
         />
       )}
     </>

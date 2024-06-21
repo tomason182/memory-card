@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import BobsBurgerApi from "../api/BobsBurgerApi";
 import style from "./Content.module.css";
+import PropTypes from "prop-types";
 
-export default function Content({ setScore, setBestScore }) {
+export default function Content({ setScore, setBestScore, score }) {
   const [characters, setCharacters] = useState(
     [...Array(10).keys()].map((i) => i + 1)
   );
@@ -36,3 +37,9 @@ export default function Content({ setScore, setBestScore }) {
     </div>
   );
 }
+
+Content.propTypes = {
+  setScore: PropTypes.func.isRequired,
+  setBestScore: PropTypes.func.isRequired,
+  score: PropTypes.number.isRequired,
+};
